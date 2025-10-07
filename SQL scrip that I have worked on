@@ -1,0 +1,43 @@
+-- SELECT * allows us to select all the rows and all the columns in our dataset
+SELECT*
+FROM retail_sales_dataset;
+
+-- Comma seperate the names of the columns 
+-- Inside the SELECT statement we specify the names of the columns that we want in our outcome 
+-- To filter the columns we just do not mention them in our SELECT statement
+
+SELECT transaction_id,
+       date,
+       customer_id,
+       total_amount
+FROM retail_sales_dataset;
+
+-- We commonly use SELECT DISTINCT to understand the different values in a specific column
+-- SELECT distinct is a way to check the different values in a specific column
+SELECT DISTINCT product_category
+FROM retail_sales_dataset;
+
+SELECT DISTINCT gender
+FROM retail_sales_dataset;
+
+-- WHERE it is used to filter our rows based on a specific condition
+-- This code will filter the rows ensuring that only the ones with gender='Male' appear on our outcome
+-- Our filtering condition says - want the rows where gendert='Male'
+SELECT customer_id,
+       gender,
+       date,
+       total_amount
+FROM retail_sales_dataset
+WHERE gender = 'Male';
+
+-- Condition 1: gender = 'Female'
+-- Condition 2: total_amount>300
+-- AND operator allows to combine multiple conditions - All the conditions must be met
+-- AS statement it is used to rename the column name 
+
+SELECT customer_id,
+       gender AS sex,
+       product_category,
+       total_amount AS revenue
+FROM retail_sales_dataset
+WHERE gender = 'Female' AND total_amount=300 AND product_category='Clothing';
